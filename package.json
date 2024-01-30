@@ -3,13 +3,22 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@ericblade/quagga2": "^1.8.4",
+        "@zxing/library": "^0.20.0",
+        "barcode-reader": "^1.6.1",
         "cra-template": "1.2.0",
         "google-translate-api": "^2.3.0",
+        "html5-qrcode": "^2.3.8",
+        "jsbarcode": "^3.11.6",
+        "path-browserify": "^1.0.1",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-router-dom": "^6.21.3",
         "react-scripts": "5.0.1",
-        "react-toastify": "^10.0.4"
+        "react-toastify": "^10.0.4",
+        "stream-browserify": "^3.0.0",
+        "zbar.wasm": "^2.1.1",
+        "zxing-typescript": "^0.1.2"
     },
     "scripts": {
         "start": "react-scripts start",

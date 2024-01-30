@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 // import translate from 'google-translate-api';
-
+import './product.css';
 const Product = () => {
   const { state } = useLocation();
   const { productData } = state;
@@ -31,6 +31,7 @@ const Product = () => {
   const { image_front_url, categories, productName, _id, ingredients } = productData;
 
   return (
+    <div className="container">
     <div style={containerStyle}>
       {/* Product Image */}
       <div style={imageContainerStyle}>
@@ -42,10 +43,12 @@ const Product = () => {
         <h2>{productName}</h2>
         <p style={infoStyle}>Categories: {categories}</p>
         <p style={infoStyle}>Barcode: {_id}</p>
-        <p style={infoStyle}>Ingredients: {ingredients.map(ingredient => ingredient.text).join(', ')}</p>
+        {/* <p style={infoStyle}>Ingredients: {ingredients.map(ingredient => ingredient.text).join(', ')}</p> */}
         {/* Add more details as needed */}
       </div>
     </div>
+    </div>
+    
   );
 };
 
@@ -54,6 +57,7 @@ const containerStyle = {
   display: 'flex',
   alignItems: 'center',
   padding: '20px',
+  backgroundImage: "../images/product-bg.jpg",
 };
 
 const imageContainerStyle = {

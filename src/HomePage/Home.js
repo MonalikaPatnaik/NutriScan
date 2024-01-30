@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Html5QrcodePlugin from "./html";
 
 import "./home.css";
 const Home = () => {
@@ -52,12 +53,34 @@ const Home = () => {
       handleSearch();
     }
   };
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
+  const onNewScanResult = (decodedText, decodedResult) => {
+   
+    fetch(`https://world.openfoodfacts.net/api/v2/product/${decodedText}`)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      if (data.status === 0) {
+        // Display error toast message
+        toast.error("No code or invalid code", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        return;
+      }
+      navigate(`/product/${decodedText}`, {
+        state: { productData: data.product },
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
 
-    // You can perform actions with the uploaded image, e.g., display it
-    setUploadedImage(URL.createObjectURL(file));
-  };
+};
   return (
     <>
       <div className="container">
@@ -80,13 +103,14 @@ const Home = () => {
         {/* </div> */}
 
         {/* Image Upload Button */}
-        <h2>Upload the Image of Barcode</h2>
-        <input
-          type="file"
-          id="upload-image"
-          accept="image/*"
-          onChange={handleImageUpload}
+        <div className="App">
+        <Html5QrcodePlugin
+            fps={10}
+            qrbox={250}
+            disableFlip={false}
+            qrCodeSuccessCallback={onNewScanResult}
         />
+    </div>
       </div>
     </>
   );

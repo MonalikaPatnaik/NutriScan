@@ -29,3 +29,12 @@ input{
 input:focus {
     border-color: red;
   }
+  #html5-qrcode-button-camera-permission{
+    display:none;
+  }
+  #html5qr-code-full-region{
+    padding:10px;
+    /* img{
+        display:none;
+    } */
+  }
