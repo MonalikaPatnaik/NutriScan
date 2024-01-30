@@ -2,12 +2,20 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Html5QrcodePlugin from "./html";
+import Html5QrcodePlugin from "./html5QrcodePlugin";
 
 import "./home.css";
 const Home = () => {
   const [barcode, setBarcode] = useState("");
   const navigate = useNavigate();
+  const [isHover, setIsHover] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHover(true);
+  };
+  const handleMouseLeave = () => {
+    setIsHover(false);
+  };
   const handleSearch = () => {
 
     if (barcode) {
@@ -37,18 +45,12 @@ const Home = () => {
         });
     }
   };
-  const [uploadedImage, setUploadedImage] = useState(null);
-  // const handleSearch = () => {
-  //   // Implement your search logic based on the 'searchTerm'
-  //   console.log(`Searching for: ${searchTerm}`);
-  // };
+
   const handleInputChange = (event) => {
-    // Update the barcode state when the input value changes
     setBarcode(event.target.value);
   };
 
   const handleKeyPress = (event) => {
-    // Check if Enter key is pressed (key code 13) and trigger the search
     if (event.key === "Enter") {
       handleSearch();
     }
@@ -83,26 +85,74 @@ const Home = () => {
 };
   return (
     <>
+    
       <div className="container">
-        {/* <img src={bg}/> */}
-        {/* <div className='search'> */}
-        <h2 color="white">
+      <div className="heading">Welcome!</div>
+        <h2>
           Enter the barcode of the product to see its Nutritional Value👇
         </h2>
+        <div
+          style={{
+            maxWidth: "400px",
+            width: "100%",
+          }}
+        >
+        <div
+            style={{
+              position: "relative",
+              height: "50px",
+              maxWidth: "380px",
+              background: "red",
+              margin: "auto",
+              boxShadow: "0 5px 10px rgba(0,0,0,0.25)",
+              borderRadius: "25px",
+            }}
+          >
         <input
           type="text"
           placeholder="Enter barcode..."
           value={barcode}
           onChange={handleInputChange}
+          onClick={handleMouseEnter}
+          onMouseOut={handleMouseLeave}
           onKeyPress={handleKeyPress}
+          style={{
+            position: "absolute",
+            height: "100%",
+            width: "100%",
+            borderRadius: "25px",
+            background: "#fff",
+            outline: isHover ? "2px solid rgb(1, 191, 113)" : "none",
+            border: "none",
+            fontSize: "18px",
+            paddingLeft: "20px",
+          }}
         />
-        <button onClick={handleSearch}>
-          <i className="fa fa-search"></i>
+               <button onClick={handleSearch}
+                style={{
+                  position: "absolute",
+                  right: "-22px",
+                  top: "0",
+                  width: "50px",
+                  border: "2px solid rgb(1, 191, 113)",
+                  background: "rgb(1, 191, 113)",
+                  height: "100%",
+                  textAlign: "center",
+                  lineHeight: "50px",
+                  color: "#fff",
+                  fontSize: "20px",
+                  borderRadius: "0 25px 25px 0",
+                  cursor:"pointer",
+                }}
+               >
+          <i className="fas fa-search"></i>
         </button>
+       
+        </div>
+        </div>
         <h2>OR</h2>
-        {/* </div> */}
 
-        {/* Image Upload Button */}
+
         <div className="App">
         <Html5QrcodePlugin
             fps={10}
