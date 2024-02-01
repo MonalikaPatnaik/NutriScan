@@ -43,7 +43,7 @@ To run the NutriScan web application locally, follow these steps:
    - The application will automatically scan the barcode and fetch nutritional details.
 
   The fetched information from the api is shown like this
-     ![image](https://github.com/MonalikaPatnaik/NutriScan/assets/99353300/5a7d964c-07c7-4f9b-9569-ee9e8dacb402)
+    ![image](https://github.com/MonalikaPatnaik/NutriScan/assets/99353300/88af9840-c798-4c67-9e53-0dfdc7ac6a81)
 
 
 

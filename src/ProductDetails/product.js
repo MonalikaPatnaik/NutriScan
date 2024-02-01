@@ -46,7 +46,7 @@ const Product = () => {
               <h1 className="para-heading">{generic_name}</h1>
               <ul>
                 <li>
-                  <b> Barcode:</b> {_id}
+                  <b> Barcode:</b> {_id} (EAN_13 format)
                 </li>
                 {ingredients_hierarchy && ingredients_hierarchy.length > 0 &&
                 (<li>
