@@ -32,11 +32,20 @@ To run the NutriScan web application locally, follow these steps:
 1. **Barcode Search:**
    - Enter the barcode of the food product(EAN_13 format) in the search bar.
    - Click the search icon or press Enter to retrieve nutritional information.
+  
+     The Home page looks like this-
+     ![image](https://github.com/MonalikaPatnaik/NutriScan/assets/99353300/0d35c6f6-8d52-4f84-b755-b13f89430621)
+
 
 2. **Image Upload:**
    - Click the "Upload Image" button.
    - Choose an image file containing the barcode(EAN_13 format).
    - The application will automatically scan the barcode and fetch nutritional details.
+
+  The fetched information from the api is shown like this
+     ![image](https://github.com/MonalikaPatnaik/NutriScan/assets/99353300/5a7d964c-07c7-4f9b-9569-ee9e8dacb402)
+
+
 
 ## Technologies Used
 
