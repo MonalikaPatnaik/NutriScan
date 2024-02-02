@@ -6,10 +6,11 @@
   base-palette: 10;
 }
 h2{
-  color:white;
-  font-weight: bold;
+  color:black;
+  font-weight: 800;
   font-size: 30px;
-  -webkit-text-stroke: 1.2px rgba(123, 35, 35, 0.536); 
+  -webkit-text-stroke: 0.5px white; 
+  font-family: sans-serif;
 }
 .container{
     display: flex;
@@ -25,10 +26,9 @@ h2{
   }
   #html5qr-code-full-region{
     padding:10px;
-    border: 1px solid white;
+    border: 1px solid white !important;
     width:300px;
     img{
-      /* display:none; */
      width:30%;
     }
   }
@@ -37,14 +37,13 @@ h2{
    font-size: 70px;
    font-family: 'Rocher';
 
-   /* font-palette: --Grays; */
    
   }
   #html5-qrcode-anchor-scan-type-change{
     font-family: 'Merriweather', serif;
     font-weight: bold;
     font-size: 21px;
-    -webkit-text-stroke: 1.2px rgba(123, 35, 35, 0.536); 
+    /* -webkit-text-stroke: 0.1px white;   */
     &:hover{
       color:white;
      }
